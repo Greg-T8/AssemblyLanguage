@@ -1,19 +1,25 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Assembly Program",
+            "name": "LLDB: Launch",
+            "type": "lldb",
+            "request": "launch",
+            "stopOnEntry": true,
+            "console": "internalConsole",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "preLaunchTask": "Assemble and Link"
+        },
+        {
+            "name": "GDB: Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/myexit",
-            "args": [],
-            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
-            "environment": [],
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "stopAtEntry": true,
+            "stopAtConnect": true,
             "externalConsole": false,
+            "internalConsoleOptions": "openOnSessionStart",
             "MIMode": "gdb",
             "setupCommands": [
                 {
@@ -22,8 +28,8 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "",
             "miDebuggerPath": "/usr/bin/gdb",
-        }
+            "preLaunchTask": "Assemble and Link",
+        },
     ]
 }

@@ -8,4 +8,5 @@
 _start:
     movq $60, %rax
     movq $3, %rdi
+    addq $25, %rdi
     syscall

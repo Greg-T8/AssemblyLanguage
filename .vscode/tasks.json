@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Assemble and Link",
+            "type": "shell",
+            "detail": "Assemble and link the program.",
+            "command": [
+                "rawfilename=${fileDirname}/${fileBasenameNoExtension};",
+                "as --gstabs+ ${file} --64 -o $rawfilename.o;",
+                "ld $rawfilename.o -o $rawfilename;"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "error"
+                }
+            },
+            "presentation": {
+                "focus": false,
+                "panel": "dedicated",
+                "reveal": "always",
+                "clear": false,
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "detail": "Run the program.",
+            "command": [
+                "echo 'Running ${fileBasenameNoExtension}';",
+                "${fileDirname}/${fileBasenameNoExtension};",
+                "echo $?"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "error"
+                }
+            },
+            "presentation": {
+                "focus": false,
+                "panel": "dedicated",
+                "reveal": "always",
+                "clear": false,
+                "showReuseMessage": false
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "Assemble and Link"
+        }
+    ]
+}
