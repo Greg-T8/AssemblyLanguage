@@ -17,11 +17,11 @@
             },
             "presentation": {
                 "focus": false,
-                "panel": "dedicated",
-                "reveal": "always",
+                "panel": "shared",
+                "reveal": "silent",
                 "clear": false,
                 "showReuseMessage": false
-            }
+            },
         },
         {
             "label": "Run",
@@ -38,8 +38,8 @@
                 }
             },
             "presentation": {
-                "focus": false,
-                "panel": "dedicated",
+                "focus": true,
+                "panel": "shared",
                 "reveal": "always",
                 "clear": false,
                 "showReuseMessage": false
@@ -48,7 +48,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "dependsOn": "Assemble and Link"
+            "dependsOn": "Assemble and Link",
         }
     ]
 }

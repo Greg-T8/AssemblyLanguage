@@ -2,13 +2,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "LLDB: Launch",
+            "name": "LLDB: Launch (CodeLLDB)",
             "type": "lldb",
             "request": "launch",
             "stopOnEntry": true,
-            "console": "internalConsole",
             "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen",
+            "terminal": "integrated",
             "preLaunchTask": "Assemble and Link"
+        },
+        {
+            "name": "GDB: Launch (Native Debug)",
+            "type": "gdb",
+            "request": "launch",
+            "target": "${workspaceFolder}/${fileBasenameNoExtension}",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "Assemble and Link",
         },
         {
             "name": "GDB: Launch",
